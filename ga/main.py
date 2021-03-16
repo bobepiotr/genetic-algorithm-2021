@@ -6,6 +6,7 @@ import ga.random_method as rm
 import time
 import ga.selection_operators as so
 import ga.population_generator as pg
+import ga.genetic_algotithm as gen_alg
 
 
 def create_one_solution(file_path):
@@ -58,15 +59,29 @@ def roulette_selection(brd, amount):
     v.draw_plots(roulette_winner.parse_to_list_of_points(), brd.dimensions)
 
 
+def genetic_algorithm(brd, generation_size, generation_amount):
+    genetic_alg = gen_alg.GeneticAlgorithm(brd)
+    start = time.time()
+    best_sol = genetic_alg.genetic_alg(generation_size, generation_amount)
+    stop = time.time()
+    print(f"Total time: {stop - start} seconds")
+    best_sol.present_solution(brd)
+    v.draw_plots(best_sol.parse_to_list_of_points(), brd.dimensions)
+
+
 if __name__ == '__main__':
     AMOUNT_OF_INDIVIDUALS = 1_000
     TIME = 500
     TOURNAMENT_SIZE = 10
 
+    GENERATION_SIZE = 100
+    GENERATION_AMOUNT = 1_000
+
     board = b.PcbBoard()
-    board.init_data(ZAD_0)
+    board.init_data(ZAD_A)
 
     # create_one_solution(ZAD_0)
     # random_function(board, AMOUNT_OF_INDIVIDUALS)
     # tournament_selection(board, TOURNAMENT_SIZE, AMOUNT_OF_INDIVIDUALS)
     # roulette_selection(board, AMOUNT_OF_INDIVIDUALS)
+    genetic_algorithm(board, GENERATION_SIZE, GENERATION_AMOUNT)

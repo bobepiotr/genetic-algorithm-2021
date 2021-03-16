@@ -2,6 +2,7 @@ import ga.solution as sol
 import random as ran
 import ga.step as st
 from ga.const import *
+import copy as c
 
 
 def crossover(parent1, parent2):
@@ -9,13 +10,14 @@ def crossover(parent1, parent2):
     parent1_path_list = parent1.path_list
     parent2_path_list = parent2.path_list
 
-    for paths in zip(parent1_path_list, parent2_path_list):
-        child.path_list.append(ran.choice(paths))
+    for path_1, path_2 in zip(parent1_path_list, parent2_path_list):
+        inheritance = c.deepcopy(path_1) if ran.random() > 0.5 else c.deepcopy(path_2)
+        child.path_list.append(inheritance)
 
     return child
 
 
-def mutation(solution, mutation_power, step_index=-1, mutation_turn=-1):
+def mutation(solution, mutation_power=1, step_index=-1, mutation_turn=-1):
     random_path_index = ran.randint(0, len(solution.path_list) - 1)
     mutation_path = solution.path_list[random_path_index]
     mutation_list = mutation_path.step_list

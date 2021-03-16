@@ -37,6 +37,7 @@ class TestMutation(unittest.TestCase):
         self.solution.path_list[0] = path
         step_list_before_mutation = copy.deepcopy(path.step_list)
         op.mutation(self.solution, 1)
+
         visualize_solution(step_list_before_mutation, self.solution.path_list[0])
 
     def test_mutation_4(self):

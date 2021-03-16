@@ -1,6 +1,7 @@
 from ga.point import *
 import ga.path_creator as pc
 import ga.step as st
+import copy as c
 
 
 class Path:

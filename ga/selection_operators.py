@@ -26,7 +26,7 @@ def tournament_selection(population, tournament_size):
 def roulette_selection(population):
     probabilities_inverted = []
     probabilities = []
-    max_fitting = sum(population)
+    max_fitting = sum_population_fittings(population)
 
     for solution in population:
         prob = (1 - solution.fitting / max_fitting) * max_fitting
@@ -41,3 +41,11 @@ def roulette_selection(population):
     best = np.random.choice(population, p=probabilities)
 
     return best
+
+
+def sum_population_fittings(population):
+    fitting_sum = 0
+    for sol in population:
+        fitting_sum += sol.fitting
+
+    return fitting_sum
