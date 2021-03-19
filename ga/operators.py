@@ -17,7 +17,7 @@ def crossover(parent1, parent2):
     return child
 
 
-def mutation(solution, mutation_power=1, step_index=-1, mutation_turn=-1):
+def mutation(solution, step_index=-1, mutation_turn=-1, mutation_power=1):
     random_path_index = ran.randint(0, len(solution.path_list) - 1)
     mutation_path = solution.path_list[random_path_index]
     mutation_list = mutation_path.step_list
