@@ -9,7 +9,7 @@ from ga.const import *
 class TestPath(unittest.TestCase):
     def setUp(self):
         self.board = b.PcbBoard()
-        self.board.init_data(ZAD_0)
+        self.board.init_data(ZAD_1)
         self.solution1 = s.Solution()
         self.solution2 = s.Solution()
 
@@ -31,8 +31,10 @@ class TestPath(unittest.TestCase):
             else:
                 is_error = True
                 break
-        print(f"Potomek jest w {parent1_paths/ total_paths * 100}% rodzicem 1 oraz w "
-              f"{parent2_paths/ total_paths * 100}% rodzicem 2.")
+        if not is_error:
+            print(f"Child is in {parent1_paths/ total_paths * 100}% parent 1 and in "
+                f"{parent2_paths/ total_paths * 100}% parent 2.")
+
         self.assertEqual(is_error, False)
 
 

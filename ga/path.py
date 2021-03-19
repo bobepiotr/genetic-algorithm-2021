@@ -13,6 +13,12 @@ class Path:
     def __str__(self):
         return step_list_to_string(self.step_list)
 
+    def __eq__(self, other):
+        if isinstance(other, Path):
+            return self.step_list == other.step_list
+        else:
+            return False
+
     def add_step(self, step):
         self.step_list.append(step)
 
