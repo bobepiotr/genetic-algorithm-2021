@@ -8,13 +8,13 @@ import math as m
 def create_random_path(start, stop, dimensions):
     step_list = []    # [Step(length, direction), Step(length, direction), Step(length, direction) ...]
     x, y = dimensions
-    maximum_step_length = int((x + y) / m.sqrt(x+y))
+    maximum_step_length = int((x + y) / m.sqrt(x + y))
     maximum_steps_amount = int((x + y) / 2)
     steps_amount = ran.randint(1, maximum_steps_amount)
     actual_position = start
     previous_direction = -1
 
-    for i in range(steps_amount - 2):
+    for i in range(steps_amount):
         direction = ran.choice([RIGHT, LEFT, UP, DOWN])
         while is_step_back(previous_direction, direction):
             direction = ran.choice([RIGHT, LEFT, UP, DOWN])
