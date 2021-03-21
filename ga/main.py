@@ -70,18 +70,18 @@ def genetic_algorithm(brd, generation_size, generation_amount):
 
 
 if __name__ == '__main__':
-    AMOUNT_OF_INDIVIDUALS = 1_000
+    AMOUNT_OF_INDIVIDUALS = 100_000
     TIME = 500
     TOURNAMENT_SIZE = 10
 
     GENERATION_SIZE = 100
-    GENERATION_AMOUNT = 1_000
+    GENERATION_AMOUNT = 1000
 
     board = b.PcbBoard()
-    board.init_data(ZAD_A)
+    board.init_data(ZAD_0)
 
     # create_one_solution(ZAD_0)
-    # random_function(board, AMOUNT_OF_INDIVIDUALS)
+    # random_function_time(board, 35)
     # tournament_selection(board, TOURNAMENT_SIZE, AMOUNT_OF_INDIVIDUALS)
     # roulette_selection(board, AMOUNT_OF_INDIVIDUALS)
     genetic_algorithm(board, GENERATION_SIZE, GENERATION_AMOUNT)
