@@ -68,7 +68,7 @@ class Path:
     def split_step(self, step_index):
         step = self.step_list[step_index]
         if step.length > 1:
-            random_index = ran.randint(1, len(self.step_list) - 1)
+            random_index = ran.randint(1, step.length - 1)
             dire = step.direction
             len_1 = random_index
             len_2 = step.length - random_index
