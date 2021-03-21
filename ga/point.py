@@ -12,3 +12,6 @@ class Point:
             return self.x_coord == other.x_coord and self.y_coord == other.y_coord
         else:
             return False
+
+    def __copy__(self):
+        return Point(self.x_coord, self.y_coord)
