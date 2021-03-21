@@ -55,7 +55,7 @@ def get_min_elem_from_list_of_lists(list_of_lists):
 
 
 def visualize_generation_progress(avg_fitting, best_fitness, worst_fitness, generation_amount):
-    # plt.plot(range(generation_amount), avg_fitting, label='avg')
+    plt.plot(range(generation_amount), avg_fitting, label='avg')
     plt.plot(range(generation_amount), best_fitness, label='best')
     plt.plot(range(generation_amount), worst_fitness, label='worst')
     plt.legend(loc='upper left')
