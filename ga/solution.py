@@ -1,7 +1,7 @@
 import ga.path_creator as sc
 import ga.punishment as pn
 import ga.path as pa
-
+import copy
 from ga.const import *
 
 
@@ -19,6 +19,12 @@ class Solution:
         if isinstance(other, Solution):
             return self.fitting > other.fitting
         return False
+
+    def __copy__(self):
+        sol_copy = Solution()
+        sol_copy.path_list = copy.deepcopy(self.path_list)
+        sol_copy.fitting = self.fitting
+        return sol_copy
 
     def __radd__(self, other):
         return other + self.fitting

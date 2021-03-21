@@ -2,6 +2,7 @@ from ga.point import *
 import ga.path_creator as pc
 import ga.step as st
 import copy as c
+import copy
 
 
 class Path:
@@ -18,6 +19,11 @@ class Path:
             return self.step_list == other.step_list
         else:
             return False
+
+    def __copy__(self):
+        path_copy = Path(self.start, self.stop)
+        path_copy.step_list = copy.deepcopy(self.step_list)
+        return path_copy
 
     def add_step(self, step):
         self.step_list.append(step)

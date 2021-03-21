@@ -11,7 +11,7 @@ def tournament_selection(population, tournament_size):
     tournament_set = set()
 
     while len(tournament_set) < tournament_size:
-        random_index = ran.randint(0, population_size)
+        random_index = ran.randint(0, population_size - 1)
         tournament_set.add(population[random_index])
 
     best_solution = tournament_set.pop()
