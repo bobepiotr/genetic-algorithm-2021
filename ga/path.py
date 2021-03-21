@@ -1,7 +1,7 @@
 from ga.point import *
 import ga.path_creator as pc
 import ga.step as st
-import copy as c
+import random as ran
 import copy
 
 
@@ -64,6 +64,16 @@ class Path:
                 new_step_list.append(step)
 
         self.step_list = new_step_list
+
+    def split_step(self, step_index):
+        step = self.step_list[step_index]
+        if step.length > 1:
+            random_index = ran.randint(1, len(self.step_list) - 1)
+            dire = step.direction
+            len_1 = random_index
+            len_2 = step.length - random_index
+            self.step_list[step_index] = st.Step(len_1, dire)
+            self.step_list.insert(step_index + 1, st.Step(len_2, dire))
 
 
 def step_list_to_string(step_list):

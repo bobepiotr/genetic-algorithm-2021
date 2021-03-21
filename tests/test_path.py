@@ -111,6 +111,54 @@ class TestPath(unittest.TestCase):
 
         self.assertEqual(path.step_list, [])
 
+    def test_split_1(self):
+        path = pa.Path()
+        step1 = st.Step(1, LEFT)
+        step2 = st.Step(5, UP)
+        step3 = st.Step(3, RIGHT)
+        step4 = st.Step(6, DOWN)
+        step5 = st.Step(1, RIGHT)
+        step_list = [step1, step2, step3, step4, step5]
+        path.step_list = step_list
+        path.split_step(3)
+        print(path)
+
+    def test_split_2(self):
+        path = pa.Path()
+        step1 = st.Step(1, LEFT)
+        step2 = st.Step(5, UP)
+        step3 = st.Step(3, RIGHT)
+        step4 = st.Step(6, DOWN)
+        step5 = st.Step(10, RIGHT)
+        step_list = [step1, step2, step3, step4, step5]
+        path.step_list = step_list
+        path.split_step(4)
+        print(path)
+
+    def test_split_3(self):
+        path = pa.Path()
+        step1 = st.Step(10, LEFT)
+        step2 = st.Step(5, UP)
+        step3 = st.Step(3, RIGHT)
+        step4 = st.Step(6, DOWN)
+        step5 = st.Step(10, RIGHT)
+        step_list = [step1, step2, step3, step4, step5]
+        path.step_list = step_list
+        path.split_step(0)
+        print(path)
+
+    def test_split_4(self):
+        path = pa.Path()
+        step1 = st.Step(10, LEFT)
+        step2 = st.Step(5, UP)
+        step3 = st.Step(0, RIGHT)
+        step4 = st.Step(6, DOWN)
+        step5 = st.Step(10, RIGHT)
+        step_list = [step1, step2, step3, step4, step5]
+        path.step_list = step_list
+        path.split_step(2)
+        print(path)
+
 
 if __name__ == '__main__':
     unittest.main()
