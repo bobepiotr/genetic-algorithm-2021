@@ -38,28 +38,23 @@ class Step:
 
 def step_to_point_list(step, start):
     act_point = p.Point(start.x_coord, start.y_coord)
-    #p_list = [act_point]
     p_list = []
 
     if step.direction == RIGHT:
         for i in range(step.length):
             p_list.append(act_point)
             act_point = p.Point(act_point.x_coord + 1, act_point.y_coord)
-            # p_list.append(act_point)
     elif step.direction == LEFT:
         for i in range(step.length):
             p_list.append(act_point)
             act_point = p.Point(act_point.x_coord - 1, act_point.y_coord)
-            # p_list.append(act_point)
     elif step.direction == UP:
         for i in range(step.length):
             p_list.append(act_point)
             act_point = p.Point(act_point.x_coord, act_point.y_coord - 1)
-            # p_list.append(act_point)
     elif step.direction == DOWN:
         for i in range(step.length):
             p_list.append(act_point)
             act_point = p.Point(act_point.x_coord, act_point.y_coord + 1)
-            # p_list.append(act_point)
 
     return act_point, p_list
