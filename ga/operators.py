@@ -17,12 +17,14 @@ def crossover(parent1, parent2):
     return child
 
 
-def mutation(solution, step_index=-1, mutation_turn=-1, mutation_power=1):
+def mutation(solution, step_index=-1, mutation_turn=-1, mutation_power=1, kind=''):
     random_path_index = ran.randint(0, len(solution.path_list) - 1)
     mutation_path = solution.path_list[random_path_index]
     mutation_list = mutation_path.step_list
     step_amount = len(mutation_list)
     random_step_index = step_index if step_index != -1 else ran.randint(0, step_amount - 1)
+    if kind == 'split':
+        mutation_path.split_step(random_step_index)     # splitting chosen step in two pieces
     mutation_step = mutation_list[random_step_index]
 
     # horizontal mutations
@@ -36,18 +38,23 @@ def mutation(solution, step_index=-1, mutation_turn=-1, mutation_power=1):
 
 
 def setup_neighbours(mutation_list, random_step_index, step_amount, mutation_direction, dir_1, dir_2):
+    ngb_dir = dir_1 if mutation_direction == dir_1 else dir_2
     if random_step_index == 0:                       # no left neighbour
-        left_ngb_dir = dir_1 if mutation_direction == dir_1 else dir_2
-        mutation_list.insert(0, st.Step(0, left_ngb_dir))
+        mutation_list.insert(0, st.Step(0, ngb_dir))
         random_step_index += 1
         step_amount += 1
 
     if random_step_index == step_amount - 1:         # no right neighbour
-        right_ngb_dir = dir_1 if mutation_direction == dir_1 else dir_2
-        mutation_list.append(st.Step(0, right_ngb_dir))
+        mutation_list.append(st.Step(0, ngb_dir))
         step_amount += 1
 
-    return mutation_list[random_step_index - 1], mutation_list[random_step_index+1]
+    # in splitting mutation two duplicate direction steps may occur
+    # duplicate direction step will always appear as right neighbour because of split_step method specification
+    # insert right neighbour to eliminate this defect
+    if mutation_list[random_step_index + 1].direction == mutation_list[random_step_index].direction:
+        mutation_list.insert(random_step_index + 1, st.Step(0, ngb_dir))
+
+    return mutation_list[random_step_index - 1], mutation_list[random_step_index + 1]
 
 
 def create_path(mutation_list, random_step_index, step_amount, dir_1, dir_2, mutation_power, mutation_turn=-1):
