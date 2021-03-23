@@ -61,3 +61,11 @@ def visualize_generation_progress(avg_fitting, best_fitness, worst_fitness, gene
     plt.legend(loc='upper left')
     plt.show()
 
+
+def save_generation_progress_visualisation(avg_fitting, best_fitness, worst_fitness, generation_amount, filename):
+    plt.plot(range(generation_amount), avg_fitting, label='avg')
+    plt.plot(range(generation_amount), best_fitness, label='best')
+    plt.plot(range(generation_amount), worst_fitness, label='worst')
+    plt.legend(loc='upper left')
+    plt.savefig(filename)
+    plt.clf()

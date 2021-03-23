@@ -12,8 +12,9 @@ import copy
 
 class TestMutation(unittest.TestCase):
     def setUp(self):
+        self.start = pt.Point(9, 7)
         self.solution = s.Solution()
-        self.path = pa.Path(pt.Point(9, 7))
+        self.path = pa.Path(self.start)
         self.path_before_mut = pa.Path(pt.Point(9, 7))
 
     def mutate(self, step_list, step_index, mutation_turn):
@@ -54,6 +55,18 @@ class TestMutation(unittest.TestCase):
         step_list = [st.Step(2, LEFT), st.Step(2, UP), st.Step(1, LEFT), st.Step(1, UP), st.Step(1, RIGHT),
                      st.Step(3, UP)]
         self.mutate(step_list, 5, LEFT)
+
+    def test_mutation_7(self):
+        sol = s.Solution()
+        path1 = pa.Path(self.start)
+        path1.step_list = [st.Step(5, LEFT), st.Step(4, UP), st.Step(1, LEFT)]
+        path2 = pa.Path(pt.Point(2, 1))
+        path2.step_list = [st.Step(2, RIGHT), st.Step(1, DOWN), st.Step(3, RIGHT)]
+        sol.path_list = [path1, path2]
+
+        v.draw_plots(sol.parse_to_list_of_points(), (10, 10))
+        op.mutation(sol)
+        v.draw_plots(sol.parse_to_list_of_points(), (10, 10))
 
 
 if __name__ == '__main__':

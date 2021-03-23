@@ -1,4 +1,5 @@
 import random as ran
+import ga.population_generator as pg
 import math
 import numpy as np
 
@@ -23,24 +24,38 @@ def tournament_selection(population, tournament_size):
     return best_solution
 
 
+# def roulette_selection(population):
+#     probabilities_inverted = []
+#     probabilities = []
+#     max_fitting = sum_population_fittings(population)
+#
+#     for solution in population:
+#         prob = (1 - solution.fitting / max_fitting) * max_fitting
+#         probabilities_inverted.append(prob)
+#
+#     max_fitting = sum(probabilities_inverted)
+#
+#     for inv_prob, sol in zip(probabilities_inverted, population):
+#         prob = inv_prob / max_fitting
+#         probabilities.append(prob)
+#
+#     best = np.random.choice(population, p=probabilities)
+#
+#     return best
+
+
 def roulette_selection(population):
-    probabilities_inverted = []
-    probabilities = []
-    max_fitting = sum_population_fittings(population)
+    fitting_list = pg.parse_population_to_fitting_list(population)
+    min_fitting = min(fitting_list)
 
-    for solution in population:
-        prob = (1 - solution.fitting / max_fitting) * max_fitting
-        probabilities_inverted.append(prob)
+    weight = []
 
-    max_fitting = sum(probabilities_inverted)
+    for fitting in fitting_list:
+        weight.append(min_fitting/fitting)
 
-    for inv_prob, sol in zip(probabilities_inverted, population):
-        prob = inv_prob / max_fitting
-        probabilities.append(prob)
+    winner = ran.choices(population, weight)[0]
 
-    best = np.random.choice(population, p=probabilities)
-
-    return best
+    return winner
 
 
 def sum_population_fittings(population):
