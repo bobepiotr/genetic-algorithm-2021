@@ -1,12 +1,12 @@
 import ga.solution.solution as s
-import ga.items.pcb_board as b
+import ga.structures.pcb_board as b
 import ga.utilities.visualisation as v
 from ga.const import *
-import ga.optimizer.random_method as rm
+import ga.optimization.random_method as rm
 import time
 import ga.operators.selection_operators as so
 import ga.generators.population_generator as pg
-import ga.optimizer.genetic_algorithm as gen_alg
+import ga.optimization.genetic_algorithm as gen_alg
 
 
 def create_one_solution(file_path):
@@ -71,12 +71,12 @@ def genetic_algorithm(brd, generation_size, generation_amount):
 
 
 if __name__ == '__main__':
-    AMOUNT_OF_INDIVIDUALS = 100_000
-    TIME = 500
+    AMOUNT_OF_INDIVIDUALS = 100
+    TIME = 5
     TOURNAMENT_SIZE = 10
 
-    GENERATION_SIZE = 100
-    GENERATION_AMOUNT = 100
+    GENERATION_SIZE = 10
+    GENERATION_AMOUNT = 10
 
     board = b.PcbBoard()
     board.init_data(ZAD_2)
@@ -85,4 +85,4 @@ if __name__ == '__main__':
     # random_function_time(board, 35)
     # tournament_selection(board, TOURNAMENT_SIZE, AMOUNT_OF_INDIVIDUALS)
     # roulette_selection(board, AMOUNT_OF_INDIVIDUALS)
-    genetic_algorithm(board, GENERATION_SIZE, GENERATION_AMOUNT)
+    # genetic_algorithm(board, GENERATION_SIZE, GENERATION_AMOUNT)

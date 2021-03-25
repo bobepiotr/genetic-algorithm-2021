@@ -1,5 +1,5 @@
 import ga.solution.punishment as pn
-import ga.items.path as pa
+import ga.structures.path as pa
 import copy
 from ga.const import *
 
