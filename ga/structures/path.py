@@ -1,6 +1,6 @@
-from ga.point import *
-import ga.path_creator as pc
-import ga.step as st
+from ga.structures.point import *
+import ga.utilities.generators.path_generator as pc
+import ga.structures.step as st
 import random as ran
 import copy
 

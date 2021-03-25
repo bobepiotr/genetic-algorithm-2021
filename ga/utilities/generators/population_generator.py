@@ -15,3 +15,12 @@ class PopulationGenerator:
             population.append(solution)
 
         return population
+
+
+def parse_population_to_fitting_list(population):
+    fitting_list = []
+
+    for solution in population:
+        fitting_list.append(solution.fitting)
+
+    return fitting_list

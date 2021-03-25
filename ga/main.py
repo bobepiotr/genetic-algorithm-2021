@@ -1,12 +1,12 @@
-import ga.solution as s
-import ga.pcb_board as b
-import ga.visualisation as v
+import ga.solution_.solution as s
+import ga.structures.pcb_board as b
+import ga.utilities.visualisation as v
 from ga.const import *
-import ga.random_method as rm
+import ga.optimizers.random_method as rm
 import time
-import ga.selection_operators as so
-import ga.population_generator as pg
-import ga.genetic_algorithm as gen_alg
+import ga.operators_.selection_operators as so
+import ga.utilities.generators.population_generator as pg
+import ga.optimizers.genetic_algorithm as gen_alg
 
 
 def create_one_solution(file_path):
@@ -85,4 +85,4 @@ if __name__ == '__main__':
     # random_function_time(board, 35)
     # tournament_selection(board, TOURNAMENT_SIZE, AMOUNT_OF_INDIVIDUALS)
     # roulette_selection(board, AMOUNT_OF_INDIVIDUALS)
-    genetic_algorithm(board, GENERATION_SIZE, GENERATION_AMOUNT)
+    # genetic_algorithm(board, GENERATION_SIZE, GENERATION_AMOUNT)

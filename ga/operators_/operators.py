@@ -1,4 +1,4 @@
-import ga.solution as sol
+import ga.solution_.solution as sol
 import random as ran
 import ga.structures.step as st
 from ga.const import *

@@ -1,4 +1,4 @@
-import ga.solution.punishment as pn
+import ga.solution_.punishment as pn
 import ga.structures.path as pa
 import copy
 from ga.const import *

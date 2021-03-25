@@ -1,11 +1,11 @@
 import ga.utilities.generators.population_generator as pg
-import ga._operators.selection_operators as so
-import ga._operators.operators as o
+import ga.operators_.selection_operators as so
+import ga.operators_.operators as o
 import random as ran
 import copy as c
 import sys
 from ga.const import *
-import ga.solution as s
+import ga.solution_.solution as s
 
 
 class GeneticAlgorithm:

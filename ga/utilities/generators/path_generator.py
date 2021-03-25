@@ -1,6 +1,6 @@
 import random as ran
 import ga.structures.point as p
-import ga.step as st
+import ga.structures.step as st
 from ga.const import *
 import math as m
 
