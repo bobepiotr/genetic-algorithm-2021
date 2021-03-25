@@ -1,6 +1,6 @@
-import ga.population_generator as pg
-import ga.selection_operators as so
-import ga.operators as o
+import ga.utilities.generators.population_generator as pg
+import ga._operators.selection_operators as so
+import ga._operators.operators as o
 import random as ran
 import copy as c
 import sys

@@ -1,4 +1,4 @@
-import ga.point as point
+import ga.structures.point as point
 
 
 def get_data_from_text_file(file_path):
