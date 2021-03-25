@@ -1,4 +1,4 @@
-import ga.point as point
+import ga.items.point as point
 
 
 def get_data_from_text_file(file_path):
@@ -26,7 +26,7 @@ def print_list_of_points(lis):
 
 
 def test_data_loading():
-    dims, lis = get_data_from_text_file("exercises/zad0.txt")
+    dims, lis = get_data_from_text_file("../exercises/zad0.txt")
     print_list_of_points(lis)
     print(dims)
 

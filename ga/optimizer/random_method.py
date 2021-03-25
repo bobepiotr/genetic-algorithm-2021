@@ -1,5 +1,5 @@
 from sys import maxsize
-import ga.solution as s
+import ga.solution.solution as s
 import time as t
 
 

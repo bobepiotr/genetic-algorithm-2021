@@ -1,4 +1,4 @@
-import ga.solution as s
+import ga.solution.solution as s
 
 
 class PopulationGenerator:

@@ -1,6 +1,6 @@
-import ga.solution as sol
+import ga.solution.solution as sol
 import random as ran
-import ga.step as st
+import ga.items.step as st
 from ga.const import *
 import copy as c
 

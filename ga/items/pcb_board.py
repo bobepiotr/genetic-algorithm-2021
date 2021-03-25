@@ -1,4 +1,4 @@
-import ga.data_loading as dl
+import ga.utilities.data_loading as dl
 
 
 class PcbBoard:

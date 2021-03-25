@@ -1,12 +1,12 @@
-import ga.solution as s
-import ga.pcb_board as b
-import ga.visualisation as v
+import ga.solution.solution as s
+import ga.items.pcb_board as b
+import ga.utilities.visualisation as v
 from ga.const import *
-import ga.random_method as rm
+import ga.optimizer.random_method as rm
 import time
-import ga.selection_operators as so
-import ga.population_generator as pg
-import ga.genetic_algorithm as gen_alg
+import ga.operators.selection_operators as so
+import ga.generators.population_generator as pg
+import ga.optimizer.genetic_algorithm as gen_alg
 
 
 def create_one_solution(file_path):

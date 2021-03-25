@@ -1,6 +1,5 @@
-import ga.path_creator as sc
-import ga.punishment as pn
-import ga.path as pa
+import ga.solution.punishment as pn
+import ga.items.path as pa
 import copy
 from ga.const import *
 
