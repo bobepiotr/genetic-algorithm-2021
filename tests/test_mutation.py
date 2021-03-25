@@ -1,12 +1,12 @@
 import unittest
 
-import ga.items.point as pt
-import ga.items.step as st
-import ga.items.path as pa
+import ga.structures.point as pt
+import ga.structures.step as st
+import ga.structures.path as pa
 from ga.const import *
 import ga.solution.solution as s
 import ga.utilities.visualisation as v
-import ga.operators as op
+import ga.operators.operators as op
 import copy
 
 
