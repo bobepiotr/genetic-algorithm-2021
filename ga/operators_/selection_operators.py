@@ -1,7 +1,5 @@
 import random as ran
-import ga.population_generator as pg
-import math
-import numpy as np
+import ga.utilities.generators.population_generator as pg
 
 
 def tournament_selection(population, tournament_size):

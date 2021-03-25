@@ -1,6 +1,5 @@
-import ga.point as p
+import ga.structures.point as p
 from ga.const import *
-import math
 
 
 class Step:
