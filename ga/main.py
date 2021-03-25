@@ -59,10 +59,10 @@ def roulette_selection(brd, amount):
     v.draw_plots(roulette_winner.parse_to_list_of_points(), brd.dimensions)
 
 
-def genetic_algorithm(brd, generation_size, generation_amount):
+def genetic_algorithm_tournament(brd, generation_size, generation_amount, tournament_size):
     genetic_alg = gen_alg.GeneticAlgorithm(brd)
     start = time.time()
-    best_sol, research_data = genetic_alg.genetic_alg(generation_size, generation_amount)
+    best_sol, research_data = genetic_alg.genetic_alg_tournament(generation_size, generation_amount, tournament_size)
     stop = time.time()
     print(f"Total time: {stop - start} seconds")
     best_sol.present_solution(brd)
@@ -85,4 +85,4 @@ if __name__ == '__main__':
     # random_function_time(board, 35)
     # tournament_selection(board, TOURNAMENT_SIZE, AMOUNT_OF_INDIVIDUALS)
     # roulette_selection(board, AMOUNT_OF_INDIVIDUALS)
-    # genetic_algorithm(board, GENERATION_SIZE, GENERATION_AMOUNT)
+    # genetic_algorithm_tournament(board, GENERATION_SIZE, GENERATION_AMOUNT, TOURNAMENT_SIZE)
