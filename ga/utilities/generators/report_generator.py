@@ -12,6 +12,10 @@ ITERATIONS = 10
 KW_EXAM_PARAM = "exam_param"
 KW_FILENAME = "filename"
 
+KW_BEST_SOL = "best_sol"
+KW_WORST_SOL = "worst_sol"
+KW_FITTING_LIST = 'fitting_list'
+
 
 def get_statistic_values(param_list, **kwargs):
     board = bo.PcbBoard()
@@ -20,7 +24,7 @@ def get_statistic_values(param_list, **kwargs):
     examined_param = kwargs[KW_EXAM_PARAM]
     research_data = {KW_FILENAME: kwargs[KW_FILENAME], KW_EXAM_PARAM: examined_param,
                      KW_GEN_SIZE: [], KW_GEN_AMOUNT: [], KW_TOUR_SIZE: [],
-                     'best_sol': [], 'worst_sol': [], 'fitting_list': []}
+                     KW_BEST_SOL: [], KW_WORST_SOL: [], KW_FITTING_LIST: []}
 
     for i, param in enumerate(param_list):
         fitting_list = []
@@ -34,9 +38,9 @@ def get_statistic_values(param_list, **kwargs):
         research_data[KW_GEN_SIZE].append(kwargs[KW_GEN_SIZE])
         research_data[KW_GEN_AMOUNT].append(kwargs[KW_GEN_AMOUNT])
         research_data[KW_TOUR_SIZE].append(kwargs[KW_TOUR_SIZE])
-        research_data['best_sol'].append(best_fitting)
-        research_data['worst_sol'].append(worst_fitting)
-        research_data['fitting_list'].append(fitting_list)
+        research_data[KW_BEST_SOL].append(best_fitting)
+        research_data[KW_WORST_SOL].append(worst_fitting)
+        research_data[KW_FITTING_LIST].append(fitting_list)
 
     return research_data
 
@@ -77,10 +81,10 @@ def save_research_to_csv_file(research_data, examined_parameter):
                 str(research_data[KW_GEN_SIZE][i]),
                 str(research_data[KW_GEN_AMOUNT][i]),
                 str(research_data[KW_TOUR_SIZE][i]),
-                str(research_data['best_sol'][i]),
-                str(research_data['worst_sol'][i]),
-                str(statistics.mean(research_data['fitting_list'][i])),
-                str(statistics.stdev(research_data['fitting_list'][i]))
+                str(research_data[KW_BEST_SOL][i]),
+                str(research_data[KW_WORST_SOL][i]),
+                str(statistics.mean(research_data[KW_FITTING_LIST][i])),
+                str(statistics.stdev(research_data[KW_FITTING_LIST][i]))
             ])
 
 
