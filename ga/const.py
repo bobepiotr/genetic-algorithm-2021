@@ -35,3 +35,13 @@ MUTATION_PROBABILITY = 0.8
 DEFAULT_TOURNAMENT_SIZE = 10
 DEFAULT_GENERATION_AMOUNT = 200
 DEFAULT_GENERATION_SIZE = 100
+
+# paths for output files from report generator
+RESEARCH_DATA_DIR = os.path.join(DIR_PATH, "research")
+RESEARCH_IMAGES = os.path.join(RESEARCH_DATA_DIR, "images")
+RESEARCH_DATA = os.path.join(RESEARCH_DATA_DIR, "data")
+
+# constant keywords for GA parameters
+KW_GEN_SIZE = 'gen_size'
+KW_TOUR_SIZE = 'tour_size'
+KW_GEN_AMOUNT = 'gen_amount'
