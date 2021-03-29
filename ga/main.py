@@ -70,6 +70,20 @@ def genetic_algorithm_tournament(brd, generation_size, generation_amount, tourna
     v.draw_plots(best_sol.parse_to_list_of_points(), brd.dimensions)
 
 
+def random_function_research(brd, amount):
+    rand_func = rm.RandomMethod(brd)
+    start = time.time()
+    best_sol, worst_sol, fitting_list = rand_func.random_function_research(amount)
+    stop = time.time()
+
+    print(f"Total time: {stop - start} seconds")
+
+    # v.draw_plots(best_sol.parse_to_list_of_points(), brd.dimensions)
+    print(f'best solution: {best_sol}')
+    print(f'worst solution: {worst_sol}')
+    print(f'fitting_list: {fitting_list}')
+
+
 if __name__ == '__main__':
     AMOUNT_OF_INDIVIDUALS = 100_000
     TIME = 500
@@ -86,3 +100,4 @@ if __name__ == '__main__':
     # tournament_selection(board, TOURNAMENT_SIZE, AMOUNT_OF_INDIVIDUALS)
     # roulette_selection(board, AMOUNT_OF_INDIVIDUALS)
     # genetic_algorithm_tournament(board, GENERATION_SIZE, GENERATION_AMOUNT, TOURNAMENT_SIZE)
+    random_function_research(board, 10)
