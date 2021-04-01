@@ -1,6 +1,6 @@
 import unittest
-import ga.step as st
-import ga.point as p
+import ga.structures.step as st
+import ga.structures.point as p
 from ga.const import *
 import copy
 

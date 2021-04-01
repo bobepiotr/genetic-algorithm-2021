@@ -1,10 +1,10 @@
 import unittest
 
-import ga.solution as s
-import ga.pcb_board as b
-import ga.operators as op
+import ga.solution_.solution as s
+import ga.structures.pcb_board as b
+import ga.operators_.operators as op
 from ga.const import *
-import ga.step as st
+import ga.structures.step as st
 
 
 class TestPath(unittest.TestCase):
