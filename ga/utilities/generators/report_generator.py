@@ -9,6 +9,13 @@ from ga.const import *
 
 ITERATIONS = 10
 
+KW_EXAM_PARAM = "exam_param"
+KW_FILENAME = "filename"
+
+KW_BEST_SOL = "best_sol"
+KW_WORST_SOL = "worst_sol"
+KW_FITTING_LIST = 'fitting_list'
+
 
 def get_statistic_values(param_list, **kwargs):
     board = bo.PcbBoard()
@@ -25,6 +32,8 @@ def get_statistic_values(param_list, **kwargs):
         kwargs[examined_param] = param
         best_fitting, worst_fitting, gen_fitting_list \
             = get_population_statistics(gen_alg, **kwargs)
+
+        fitting_list += gen_fitting_list
 
         research_data[KW_GEN_SIZE].append(kwargs[KW_GEN_SIZE])
         research_data[KW_GEN_AMOUNT].append(kwargs[KW_GEN_AMOUNT])
