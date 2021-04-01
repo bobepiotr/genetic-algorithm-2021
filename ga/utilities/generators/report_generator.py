@@ -9,13 +9,6 @@ from ga.const import *
 
 ITERATIONS = 10
 
-KW_EXAM_PARAM = "exam_param"
-KW_FILENAME = "filename"
-
-KW_BEST_SOL = "best_sol"
-KW_WORST_SOL = "worst_sol"
-KW_FITTING_LIST = 'fitting_list'
-
 
 def get_statistic_values(param_list, **kwargs):
     board = bo.PcbBoard()

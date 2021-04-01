@@ -45,3 +45,10 @@ RESEARCH_DATA = os.path.join(RESEARCH_DATA_DIR, "data")
 KW_GEN_SIZE = 'gen_size'
 KW_TOUR_SIZE = 'tour_size'
 KW_GEN_AMOUNT = 'gen_amount'
+
+# const keywords for report_generator module
+KW_EXAM_PARAM = "exam_param"
+KW_FILENAME = "filename"
+KW_BEST_SOL = "best_sol"
+KW_WORST_SOL = "worst_sol"
+KW_FITTING_LIST = 'fitting_list'
