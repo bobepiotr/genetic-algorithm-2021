@@ -30,3 +30,25 @@ OUT_PATHS_LENGTH_WEIGHT = 10
 
 CROSSOVER_PROBABILITY = 0.7
 MUTATION_PROBABILITY = 0.8
+
+# default genetic algorithm parameters
+DEFAULT_TOURNAMENT_SIZE = 10
+DEFAULT_GENERATION_AMOUNT = 200
+DEFAULT_GENERATION_SIZE = 100
+
+# paths for output files from report generator
+RESEARCH_DATA_DIR = os.path.join(DIR_PATH, "research")
+RESEARCH_IMAGES = os.path.join(RESEARCH_DATA_DIR, "images")
+RESEARCH_DATA = os.path.join(RESEARCH_DATA_DIR, "data")
+
+# constant keywords for GA parameters
+KW_GEN_SIZE = 'gen_size'
+KW_TOUR_SIZE = 'tour_size'
+KW_GEN_AMOUNT = 'gen_amount'
+
+# const keywords for report_generator module
+KW_EXAM_PARAM = "exam_param"
+KW_FILENAME = "filename"
+KW_BEST_SOL = "best_sol"
+KW_WORST_SOL = "worst_sol"
+KW_FITTING_LIST = 'fitting_list'
